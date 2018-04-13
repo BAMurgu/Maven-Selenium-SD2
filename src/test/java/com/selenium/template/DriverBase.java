@@ -3,8 +3,9 @@ package com.selenium.template;
 
 import com.selenium.template.config.DriverFactory;
 import com.selenium.template.listeners.ScreenshotListener;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 
@@ -30,16 +31,20 @@ public class DriverBase {
         };
     }
 
-    public static WebDriver getDriver() throws Exception {
+    public static RemoteWebDriver getDriver() throws Exception {
         return driverFactory.get().getDriver();
     }
 
     @AfterMethod(alwaysRun = true)
-    public static void clearCookies() throws Exception {
-        getDriver().manage().deleteAllCookies();
+    public static void clearCookies() {
+        try {
+            driverFactory.get().getStoredDriver().manage().deleteAllCookies();
+        } catch (Exception ignored) {
+            System.out.println("Unable to clear cookies, driver object is not viable...");
+        }
     }
 
-    //@AfterSuite(alwaysRun = true)
+    @AfterSuite(alwaysRun = true)
     public static void closeDriverObjects() {
         for (DriverFactory driverFactory : webDriverThreadPool) {
             driverFactory.quitDriver();
