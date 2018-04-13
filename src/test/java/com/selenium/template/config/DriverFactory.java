@@ -78,6 +78,8 @@ public class DriverFactory {
         }
 
         if (useRemoteWebDriver) {
+
+            Log4Test.info("================= GOING TO USE REMOTE =================");
             URL seleniumGridURL = new URL(System.getProperty("seleniumGridURL"));
             String desiredBrowserVersion = System.getProperty("desiredBrowserVersion");
             String desiredPlatform = System.getProperty("desiredPlatform");
@@ -93,6 +95,7 @@ public class DriverFactory {
             desiredCapabilities.setBrowserName(selectedDriverType.toString());
             driver = new RemoteWebDriver(seleniumGridURL, desiredCapabilities);
         } else {
+            Log4Test.info("================= GOING TO USE LOCAL =================");
             driver = driverType.getWebDriverObject(desiredCapabilities);
         }
     }

@@ -21,6 +21,26 @@ public class TestTheTest extends DriverBase {
         Assert.assertTrue(false);
     }
 
+    @Test(groups = "Test")
+    public void Test_02() throws Exception {
+
+        WebDriver driver = getDriver();
+        driver.get("https://www.google.ro/");
+        driver.findElement(By.id("lst-ib")).sendKeys("sometjhing");
+
+        Assert.assertTrue(true);
+    }
+
+    @Test(groups = "AAAAA")
+    public void Test_03() throws Exception {
+
+        WebDriver driver = getDriver();
+        driver.get("https://www.google.ro/");
+        driver.findElement(By.id("lst-ib")).sendKeys("sometjhing");
+
+        Assert.assertTrue(false);
+    }
+
 
 
 
