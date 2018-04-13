@@ -19,6 +19,8 @@ public class TestTheTest extends DriverBase {
         driver.findElement(By.id("lst-ib")).sendKeys("sometjhing");
 
         Assert.assertTrue(true);
+
+
     }
 
     @Test(groups = "Test")
