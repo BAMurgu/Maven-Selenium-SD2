@@ -1,9 +1,8 @@
 package com.selenium.template.automationFramework;
 
 
+import org.apache.log4j.Logger;
 import org.testng.Reporter;
-import org.testng.log4testng.Logger;
-
 
 public class Log4Test {
     private static final Logger LOGGER = Logger.getLogger(Log4Test.class);
