@@ -214,9 +214,9 @@
                                 <webdriver.gecko.driver>${webdriver.gecko.driver}</webdriver.gecko.driver>
                                 <webdriver.edge.driver>${webdriver.edge.driver}</webdriver.edge.driver>
                             </systemPropertyVariables>
-                            <argLine>
-                                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                            </argLine>
+                            <!--<argLine>-->
+                                <!-- -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"-->
+                            <!--</argLine>-->
                             <groups>Test</groups>
                             <!-- <suiteXmlFiles>
                                 <suiteXmlFile>testng.xml</suiteXmlFile>
