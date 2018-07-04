@@ -7,9 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-/**
- * Created by azaharia on 24.01.2018.
- */
 public class LoginPage extends PageBase{
 
     public LoginPage(WebDriver passedDriver) {
