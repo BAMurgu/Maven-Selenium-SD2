@@ -37,7 +37,7 @@ public enum DriverType implements DriverSetup {
             ChromeOptions options = new ChromeOptions();
             options.merge(capabilities);
             options.setHeadless(HEADLESS);
-            options.addArguments("--no-default-browser-check");
+            options.addArguments("--no-default-browser-check","--start-maximized");
             options.setExperimentalOption("prefs", chromePreferences);
 
             return new ChromeDriver(options);

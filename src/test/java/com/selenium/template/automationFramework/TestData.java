@@ -11,9 +11,18 @@ public class TestData {
     public static final String USERNAME = "admin";
     public static final String PASSWORD = "cxp@$$";
 
+    public static final String CLOUDMATIX_URL = "https://www.cloudmatix.com/wordpress/";
     public static final String BASE_URL = "https://sd2.bluelinksmartconnect.com/" ;
+    public static final String LOGOUT_URL = BASE_URL + "accounts/logout/";
+    public static final String LOGOUT2_URL = BASE_URL + "accounts/login/?next=/";
+    public static final String EVENTS_URL = BASE_URL + "cloudmatix/events/";
+    public static final String ADMIN_URL = BASE_URL + "admin/";
+    public static final String API_URL = BASE_URL + "api/v1/";
+    public static final String DOCS_URL = BASE_URL + "api-docs/";
+    public static final String ALARMS_URL = BASE_URL + "serverhealth/alarm/";
 
     public static final List<String> SIDE_MENU = Arrays.asList("Server","Dashboard","Maps","Vendors","Users","Products","Firmware","Reports",
                                                               "Devices","Events","Energy Star","Export Values","Change Attributes");
     public static final List<String> TOP_MENU = Arrays.asList("Home","Events","Admin","API","Docs","Alarms");
+
 }

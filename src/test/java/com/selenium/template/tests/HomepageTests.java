@@ -10,8 +10,6 @@ import org.testng.annotations.Test;
 import com.selenium.template.automationFramework.TestData;
 
 
-@Epic("Login")
-@Feature("Login actions")
 public class HomepageTests extends DriverBase{
 
     @Test(groups = "Test")

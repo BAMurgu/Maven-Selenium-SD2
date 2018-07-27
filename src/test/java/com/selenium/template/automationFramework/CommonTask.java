@@ -1,12 +1,14 @@
 package com.selenium.template.automationFramework;
 
+import com.selenium.template.pageObjects.frontend.LoginPage;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import com.selenium.template.DriverBase;
 
-public class CommonTask {
+public class CommonTask extends DriverBase{
 
     /**
      *
@@ -70,6 +72,25 @@ public class CommonTask {
             element.click();
         } catch (NoSuchElementException e) {
             Assert.fail(Log4Test.error("Element is not found : " + elementName));
+        }
+    }
+
+    public static void generalLogin() throws Exception{
+
+        WebDriver driver = getDriver();
+        driver.get(TestData.BASE_URL);
+
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login();
+    }
+
+    public static void switchWindow() throws Exception{
+
+        WebDriver driver = getDriver();
+
+        for (String winHandle : driver.getWindowHandles()){
+            driver.switchTo().window(winHandle);
+
         }
     }
 }

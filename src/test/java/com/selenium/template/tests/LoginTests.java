@@ -1,8 +1,10 @@
 package com.selenium.template.tests;
 
 import com.selenium.template.DriverBase;
+import com.selenium.template.automationFramework.CommonTask;
 import com.selenium.template.pageObjects.frontend.HomepagePage;
 import com.selenium.template.pageObjects.frontend.LoginPage;
+import com.selenium.template.pageObjects.frontend.TopMenuPage;
 import io.qameta.allure.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -11,8 +13,7 @@ import com.selenium.template.automationFramework.TestData;
 
 
 
-@Epic("Login")
-@Feature("Login actions")
+
 public class LoginTests extends DriverBase {
 
     @Test(groups = "Test")
@@ -34,6 +35,24 @@ public class LoginTests extends DriverBase {
         HomepagePage homePagePage = new HomepagePage(driver);
         Assert.assertEquals(homePagePage.getPageTitle(),"Home");
 
+    }
+
+    @Test (groups = "Test")
+    @Description("Logout Test")
+
+    public void Logout() throws Exception {
+
+        CommonTask.generalLogin();
+
+        TopMenuPage topMenuPage = new TopMenuPage(getDriver());
+        topMenuPage.clickProfileDropdown();
+        topMenuPage.clickLogoutButton();
+
+        Assert.assertEquals(getDriver().getCurrentUrl(),TestData.LOGOUT_URL);
+
+        topMenuPage.clickSignOutButton();
+
+        Assert.assertEquals(getDriver().getCurrentUrl(),TestData.LOGOUT2_URL);
     }
 
 }
